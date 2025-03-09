@@ -1,0 +1,443 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive Counter</title>
+</head>
+<body>
+  <h1>Interactive Counter</h1>
+  <h2>Account Holder Name: Peter Parker</h2>
+  <p>Followers: <span id="countDisplay">0</span></p>
+  <hr>
+  <h2>Click one button to follow</h2>
+  <button onclick="increaseCount()">Follow</button>
+
+<script>
+    let count = 0;
+    function increaseCount(){
+        count++;
+    }
+    function displayCount(){
+        document.getElementById("countDisplay").innerHTML=count;
+    }
+    function increaseCount(){
+        count++;
+        displayCount();
+    }
+    function checkyourVlue(){
+        if(count==10){
+            alert("Congratulations, you have reached ten followers")
+        }else if(count==20){
+            alert("Congratulations, you have reached tewnty followers")
+        }
+    }
+    function increaseCount(){
+        count++;
+        displayCount();
+        checkyourVlue();
+    }
+</script>
+
+</body>
+</html> -->
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        #book-list {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        #book-list li {
+            background: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            border-left: 5px solid #007BFF;
+        }
+
+        .book-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        .book-details {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .book-genre {
+            font-style: italic;
+            color: #6c757d;
+        }
+
+        #search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #search-input {
+            padding: 10px;
+            width: 60%;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #search-button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #search-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="home">
+        <h1>نظام إدارة الكتب</h1>
+        <div id="search-container">
+            <input type="text" id="search-input" placeholder="ابحث عن كتاب بواسطة العنوان..." />
+            <button id="search-button" onclick="searchBook()">بحث</button>
+        </div>
+        <ul id="book-list"></ul>
+
+        <script>
+            const books = [
+                {
+                    title: "1984",
+                    author: "George Orwell",
+                    publicationYear: 1949,
+                    genre: "Dystopian"
+                },
+                {
+                    title: "To Kill a Mockingbird",
+                    author: "Harper Lee",
+                    publicationYear: 1960,
+                    genre: "Fiction"
+                },
+                {
+                    title: "The Great Gatsby",
+                    author: "F. Scott Fitzgerald",
+                    publicationYear: 1925,
+                    genre: "Classic"
+                },
+                {
+                    title: "Moby Dick",
+                    author: "Herman Melville",
+                    publicationYear: 1851,
+                    genre: "Adventure"
+                },
+                {
+                    title: "Pride and Prejudice",
+                    author: "Jane Austen",
+                    publicationYear: 1813,
+                    genre: "Romance"
+                }
+            ];
+
+            function displayBooks(bookArray) {
+                const Book = bookArray.map(item => `
+                    <li>
+                        <div class="book-title">${item.title}</div>
+                        <div class="book-details">المؤلف: ${item.author}</div>
+                        <div class="book-details">سنة النشر: ${item.publicationYear}</div>
+                        <div class="book-genre">نوع الكتاب: ${item.genre}</div>
+                    </li>
+                `).join('');
+                document.getElementById("book-list").innerHTML = Book;
+            }
+
+            function searchBook() {
+                const searchTerm = document.getElementById("search-input").value.toLowerCase();
+                const filteredBooks = books.filter(book => book.title.toLowerCase().includes(searchTerm));
+                displayBooks(filteredBooks);
+            }
+
+            // Display all books initially
+            displayBooks(books);
+        </script>
+    </section>
+</body>
+
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة كانبان لقائمة المهام</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .column {
+            background: #fff;
+            border-radius: 5px;
+            padding: 10px;
+            width: 30%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+            width: 100%;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            margin: 5px 0;
+            background: #f9f9f9;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        li.completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="column" id="toDoColumn">
+        <h2>المهام غير المكتملة</h2>
+        <input type="text" id="taskInput" placeholder="أضف مهمة جديدة...">
+        <button id="addTaskButton">إضافة</button>
+        <ul id="taskList"></ul>
+    </div>
+
+    <div class="column" id="inProgressColumn">
+        <h2>المهام الجارية</h2>
+        <ul id="inProgressList"></ul>
+    </div>
+
+    <div class="column" id="completedColumn">
+        <h2>المهام المكتملة</h2>
+        <ul id="completedList"></ul>
+        <button id="clearCompletedButton">مسح المهام المكتملة</button>
+    </div>
+</div>
+
+<script>
+
+const button = document.getElementById("addTaskButton");
+const taskInput = document.getElementById("taskInput");
+const taskList = document.getElementById("taskList");
+const inProgressList = document.getElementById("inProgressList");
+const completedList = document.getElementById("completedList");
+const clearCompletedButton = document.getElementById("clearCompletedButton");
+
+button.addEventListener('click', function() {
+    const taskText = taskInput.value.trim();
+    if (taskText) {
+        const li = document.createElement('li');
+        li.textContent = taskText;
+        
+        // إضافة زر لنقل المهمة إلى العمود التالي
+        const moveButton = document.createElement('button');
+        moveButton.textContent = '→'; // سهم للنقل
+        moveButton.addEventListener('click', function() {
+            if (taskList.contains(li)) {
+                inProgressList.appendChild(li);
+            } else if (inProgressList.contains(li)) {
+                completedList.appendChild(li);
+            }
+        });
+
+        // إضافة زر لحذف المهمة
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = '×'; // زر الحذف
+        deleteButton.addEventListener('click', function() {
+            li.remove();
+        });
+
+        li.appendChild(moveButton);
+        li.appendChild(deleteButton);
+        taskList.appendChild(li);
+        taskInput.value = '';
+    }
+});
+
+// خاصية مسح المهام المكتملة
+clearCompletedButton.addEventListener('click', function() {
+    while (completedList.firstChild) {
+        completedList.removeChild(completedList.firstChild);
+    }
+});
+</script>
+
+</body>
+</html> -->
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX EXAMPLE</title>
+</head>
+<body>
+    <button id="LoadUserBTN">Load Users</button>
+    <div id="userlist"></div>
+
+    <script>
+        document.getElementById("LoadUserBTN").addEventListener('click', 
+        function(){
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET','https://jsonplaceholder.typicode.com/users', true)
+        });
+        //response
+        xhr.onload = function(){
+            if(xhr.status >=200 & xhr.status <400 ){
+                var users = JSON.parse(xhr.responseText);
+                displayUsers(users);
+            }else{
+                console.error("erorr fetching data");
+            }
+        }
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قائمة API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        li {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .error {
+            color: red;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>قائمة Api</h1>
+    <ul id="api-list"></ul>
+    <div class="error" id="error-message"></div>
+
+    <script>
+        const xhr = new XMLHttpRequest();
+        const url = 'https://www.freepublicapis.com/api/apis?limit=10&sort=best';
+
+        xhr.open('GET', url, true);
+
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                const data = JSON.parse(xhr.responseText);
+                const apiList = document.getElementById('api-list');
+
+                data.forEach(api => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `<strong>${api.title} ${api.emoji}</strong>: ${api.description} <br> <a href="${api.documentation}" target="_blank">توثيق Api</a>`;
+                    apiList.appendChild(listItem);
+                });
+            } else {
+                document.getElementById('error-message').textContent = 'فشل في جلب البيانات: ' + xhr.statusText;
+            }
+        };
+
+        xhr.onerror = function() {
+            document.getElementById('error-message').textContent = "حدث خطأ أثناء الاتصال.";
+        };
+
+        xhr.send();
+    </script>
+</body>
+</html>

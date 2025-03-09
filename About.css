@@ -1,0 +1,174 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family:  sans-serif;
+    background-image: url('about.png'); /* Replace with your background image URL */
+    background-size: cover; /* Ensure the background covers the whole screen */
+    background-position: center; /* Center the background image */
+    color: white; /* Change text color to white for contrast */
+}
+
+nav {
+    background-color: rgba(0, 0, 0, 0.7); /* Background color */
+    padding: 15px 20px; /* Improved padding */
+    position: fixed; /* Fixes the nav at the top */
+    width: 100%; /* Full width */
+    display: flex;
+    justify-content: space-between; /* Distributes items */
+    align-items: center; /* Vertical alignment */
+    z-index: 1000; /* Ensures the nav is above the image */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px; /* Space between items */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem; /* Padding around links */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.2); /* Background effect on hover */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.search-container {
+    margin-left: auto; /* Pushes search to the right */
+    display: flex; /* استخدام الفليكس لتوزيع العناصر */
+    align-items: center; /* محاذاة عمودية */
+    padding: 0 3rem;
+}
+
+.search-container input {
+    padding: 8px; /* Padding inside the input */
+    border: none;
+    border-radius: 4px; /* Rounded corners */
+    margin: 0 5px; /* هامش بين الإدخال والأزرار */
+}
+
+.search-button,
+.clear-button {
+    padding: 8px 12px; /* Padding around buttons */
+    border: none;
+    border-radius: 4px; /* Rounded corners */
+    background-color: #007bff; /* لون خلفية الأزرار */
+    color: white; /* لون النص */
+    cursor: pointer; /* تغيير المؤشر عند المرور */
+    margin-left: 5px; /* هامش بين الأزرار */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.search-button:hover,
+.clear-button:hover {
+    background-color: rgba(0, 123, 255, 0.8); /* تأثير عند المرور */
+}
+
+.hero {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text readability */
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+section {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(54, 55, 56, 0.8); /* Semi-transparent background */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Center and limit width */
+}
+
+h2 {
+    color: #007bff; /* Blue color for headings */
+}
+
+.team {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    background-color: #007bff; /* Team member card background */
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 10px;
+    text-align: center;
+    flex: 1 1 200px; /* Flexbox properties */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.team-member:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* تحسينات للتجاوب */
+@media (max-width: 768px) {
+    nav ul li {
+        margin: 0 10px; /* Space between items on smaller screens */
+    }
+
+    .hero h1 {
+        font-size: 2.5rem; /* تقليل حجم الخط في الشاشات الصغيرة */
+    }
+
+    .hero p {
+        font-size: 1rem; /* تقليل حجم النص */
+    }
+
+    section {
+        padding: 15px; /* تقليل الحشو في الشاشات الصغيرة */
+    }
+
+    .team-member {
+        flex: 1 1 100%; /* عرض كامل في الشاشات الصغيرة */
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 10px; /* تقليل الحشو في الشاشات الصغيرة جداً */
+    }
+    
+    .hero h1 {
+        font-size: 2rem; /* تقليل حجم الخط في الشاشات الصغيرة جداً */
+    }
+
+    .hero p {
+        font-size: 0.9rem; /* تقليل حجم النص في الشاشات الصغيرة جداً */
+    }
+}

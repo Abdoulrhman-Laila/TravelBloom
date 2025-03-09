@@ -15,9 +15,9 @@
             <li><a href="Contact us.html">Contact Us</a></li>
         </ul>
         <div class="search-container">
-            <input type="text" placeholder="Search...">
-            <button class="search-button">Search</button>
-            <button class="clear-button">Clear</button>
+            <input type="text" id="search-input" placeholder="Search...">
+            <button class="search-button" onclick="performSearch()">Search</button>
+            <button class="clear-button" onclick="clearSearch()">Clear</button>
         </div>
     </nav>
     <img class="full-screen-image" src="about.png" alt="">
@@ -29,7 +29,22 @@
                  hic delectus itaque sequi nesciunt iste excepturi, 
                enim asperiores cumque repellat accusamus.</p>
         </div>
-      
     </div>
+
+    <script>
+        function performSearch() {
+            const query = document.getElementById('search-input').value;
+            if (query) {
+                alert(`Searching for: ${query}`);
+                // يمكنك إضافة منطق البحث هنا
+            } else {
+                alert('Please enter a search term.');
+            }
+        }
+
+        function clearSearch() {
+            document.getElementById('search-input').value = '';
+        }
+    </script>
 </body>
 </html>

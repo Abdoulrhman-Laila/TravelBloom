@@ -20,30 +20,49 @@
             <button class="clear-button" onclick="clearSearch()">Clear</button>
         </div>
     </nav>
-    <img class="full-screen-image" src="about.png" alt="">
-    <div class="welcome-text">
-        <h2>Welcome to Wings<br> of Aviation</h2>
-        <div>
-            <p style=" padding: 1rem 1rem; text-align: center;margin-left: 4rem;">Your journey starts here with us. <br>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Laborum nemo quo perspiciatis quibusdam reiciendis tempora unde molestias quidem, <br>
-                 hic delectus itaque sequi nesciunt iste excepturi, 
+    
+        <div class="welcome-text">
+            <h2>Welcome to Wings<br> of Aviation</h2>
+            <p>Your journey starts here with us. <br>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+               Laborum nemo quo perspiciatis quibusdam reiciendis tempora unde molestias quidem,<br>
+               hic delectus itaque sequi nesciunt iste excepturi, 
                enim asperiores cumque repellat accusamus.</p>
         </div>
-    </div>
+    
+
+    <div id="results"></div>
 
     <script>
+        const countries = {
+            "كندا": { description: "بلد جميل معروف بمشاهدها الطبيعية.", price: "500$" },
+            "ألمانيا": { description: "وجهة مشهورة بالثقافة والتاريخ.", price: "600$" },
+            "الإمارات": { description: "معروفة بأبراجها الشاهقة ومراكز التسوق.", price: "700$" },
+            "بلجيكا": { description: "معروفة بالشوكولاتة والجبن.", price: "550$" },
+            "السعودية": { description: "موطن الحرمين الشريفين.", price: "800$" },
+            "قطر": { description: "وجهة غنية بالثقافة والفن.", price: "650$" },
+            "هولندا": { description: "معروفة بطواحين الهواء والزهور.", price: "580$" },
+            "لوكسمبورغ": { description: "دولة صغيرة ذات مناظر طبيعية خلابة.", price: "700$" }
+        };
+
         function performSearch() {
             const query = document.getElementById('search-input').value;
-            if (query) {
-                alert(`Searching for: ${query}`);
-                // يمكنك إضافة منطق البحث هنا
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = ''; // مسح النتائج السابقة
+
+            if (query in countries) {
+                const country = countries[query];
+                const card = document.createElement('div');
+                card.className = 'country-card';
+                card.innerHTML = `<h3>${query}</h3><p>${country.description}</p><p>سعر التذكرة: ${country.price}</p>`;
+                resultsDiv.appendChild(card);
             } else {
-                alert('Please enter a search term.');
+                alert('يرجى إدخال اسم بلد صحيح.');
             }
         }
 
         function clearSearch() {
             document.getElementById('search-input').value = '';
+            document.getElementById('results').innerHTML = ''; // مسح النتائج عند مسح البحث
         }
     </script>
 </body>

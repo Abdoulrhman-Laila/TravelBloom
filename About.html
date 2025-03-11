@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Flight Booking</title>
     <link rel="stylesheet" href="About.css">
+
 </head>
 <body>
     <nav>
@@ -15,9 +16,9 @@
             <li><a href="Contact us.html">Contact Us</a></li>
         </ul>
         <div class="search-container">
-            <input type="text" placeholder="Search...">
-            <button class="search-button">Search</button>
-            <button class="clear-button">Clear</button>
+            <input type="text" id="search-input" placeholder="Search...">
+            <button class="search-button" onclick="performSearch()">Search</button>
+            <button class="clear-button" onclick="clearSearch()">Clear</button>
         </div>
     </nav>
     <header class="hero">
@@ -46,9 +47,45 @@
         </div>
     </section>
 
+    <div id="results"></div>
+
     <footer>
         <p>&copy; 2025 Flight Booking. All rights reserved.</p>
     </footer>
-   
+
+    <script>
+        const countries = {
+            "كندا": { description: "بلد جميل معروف بمشاهدها الطبيعية.", price: "500$" },
+            "ألمانيا": { description: "وجهة مشهورة بالثقافة والتاريخ.", price: "600$" },
+            "الإمارات": { description: "معروفة بأبراجها الشاهقة ومراكز التسوق.", price: "700$" },
+            "بلجيكا": { description: "معروفة بالشوكولاتة والجبن.", price: "550$" },
+            "السعودية": { description: "موطن الحرمين الشريفين.", price: "800$" },
+            "قطر": { description: "وجهة غنية بالثقافة والفن.", price: "650$" },
+            "هولندا": { description: "معروفة بطواحين الهواء والزهور.", price: "580$" },
+            "لوكسمبورغ": { description: "دولة صغيرة ذات مناظر طبيعية خلابة.", price: "700$" }
+        };
+
+        function performSearch() {
+            const query = document.getElementById('search-input').value.trim();
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = ''; // مسح النتائج السابقة
+
+            if (query in countries) {
+                const country = countries[query];
+                const card = document.createElement('div');
+                card.className = 'country-card';
+                card.style.display = 'block'; // إظهار البطاقة
+                card.innerHTML = `<h3>${query}</h3><p>${country.description}</p><p>سعر التذكرة: ${country.price}</p>`;
+                resultsDiv.appendChild(card);
+            } else {
+                alert('يرجى إدخال اسم بلد صحيح.');
+            }
+        }
+
+        function clearSearch() {
+            document.getElementById('search-input').value = '';
+            document.getElementById('results').innerHTML = ''; // مسح النتائج عند مسح البحث
+        }
+    </script>
 </body>
 </html>
